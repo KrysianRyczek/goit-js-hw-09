@@ -33,8 +33,11 @@ main("ul.gallery",images)
 
 
 var lightbox = new SimpleLightbox('ul.gallery>li>a', { 
-    captionType: "alt",
-    sourceAttr: "href",
+    captions: true,
+    captionType: "attr",
+    captionsData:"alt",
+    captionPosition: 'bottom',
+    captionDelay: 250,
     overlay: true,
      
 
