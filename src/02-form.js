@@ -3,30 +3,37 @@
      "#email": localStorage.getItem(document.querySelector("input").id),
      "#msg": localStorage.getItem(document.querySelector("textarea").id)
    }
-   console.log(localMemory)
    for (const record in localMemory) {
     if (localMemory[record]===null) {
         continue
     }
-    console.log(localMemory[record])
     const element = document.querySelector(record)
-
     element.value=localMemory[record]
-    console.log(element)
   }
-
     const form =document.querySelector(".feedback-form")
-    console.log(form)
-    
     form.addEventListener("input", (event) => {
         event.preventDefault()
         const currentObject = event.target
-        console.log(currentObject.value)
         localStorage.setItem(currentObject.id, currentObject.value);
     })
-
     form.addEventListener("submit", (event) => {
+      event.preventDefault();
+      const mesage = document.querySelector("#mesage");
+      const emailValue = event.target.elements.email.value.trim()
+      const inputValue = event.target.elements.msg.value.trim()
+
+      if (((emailValue == "") || (inputValue == "")) & (mesage == null)) {
+        form.insertAdjacentHTML("beforeend", `<p id="mesage" class="message">All form fields must be filled in!</p>`);
+      }
+
+      if ((emailValue != "") & (inputValue != "")) {
+        if (mesage != null) mesage.remove();
+        console.log("email:", localStorage.getItem(document.querySelector("input").id))
+        console.log("input:",localStorage.getItem(document.querySelector("textarea").id))
         localStorage.removeItem(document.querySelector("input").id);
         localStorage.removeItem(document.querySelector("textarea").id);
+        form.reset();
+      }
+    
+
     })
-    /*  */

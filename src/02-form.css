@@ -14,3 +14,11 @@ p{
     text-align: right;
     padding-right: 5px;
 }
+.message{
+
+    width:300px;
+    height: 15px;
+    color:red; 
+    font-size: 20px;
+    text-align: center;
+}

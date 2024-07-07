@@ -29,6 +29,7 @@ const initImages = (images) => {
 const main = (root, images) =>{
     document.querySelector(root).appendChild(initImages(images))
 }
+
 main("ul.gallery",images)
 
 
